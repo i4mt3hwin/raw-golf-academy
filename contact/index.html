@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — RAW Golf Academy</title>
+  <meta name="description" content="Contact RAW Golf Academy at GolfCube Social, Springfield, NJ. Call (973) 731-6462 to book a lesson.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="/" class="navbar-logo">RAW <span class="logo-accent">Golf Academy</span></a>
+      <div class="navbar-links" id="navLinks">
+        <a href="/approach/">The Approach</a>
+        <div class="nav-dropdown">
+          <a href="/gallery/">Gallery</a>
+          <div class="nav-dropdown-menu">
+            <a href="/gallery/">Photos</a>
+            <a href="/gallery/#videos">Videos</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/clubhouse/">The Clubhouse</a>
+          <div class="nav-dropdown-menu">
+            <a href="/clubhouse/">All Posts</a>
+            <a href="/blog/top-5-grip-tips/">Top 5 Grip Tips</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/contact/" class="active">Contact</a>
+          <div class="nav-dropdown-menu">
+            <a href="/contact/">Get in Touch</a>
+            <a href="/contact/#hours">Hours &amp; Location</a>
+          </div>
+        </div>
+        <a href="tel:9737316462" class="navbar-cta">Book a Lesson</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <div class="page-header text-center">
+    <div class="container">
+      <p class="section-label">Get in Touch</p>
+      <h1>Contact Us</h1>
+      <p>Ready to book a lesson or have a question? We'd love to hear from you.</p>
+    </div>
+  </div>
+
+  <!-- Contact Content -->
+  <section class="section">
+    <div class="container">
+      <div class="contact-grid">
+        <!-- Contact Form -->
+        <div>
+          <h2 style="margin-bottom: 8px;">Send Us a Message</h2>
+          <p style="color: var(--color-text-light); margin-bottom: 24px;">Fill out the form below and we'll get back to you as soon as possible.</p>
+          <form class="contact-form" action="https://formspree.io/f/placeholder" method="POST">
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" name="name" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="your@email.com" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" placeholder="(555) 555-5555">
+            </div>
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <select id="subject" name="subject">
+                <option value="lesson">Book a Lesson</option>
+                <option value="package">Lesson Package Inquiry</option>
+                <option value="proshop">Pro Shop Order</option>
+                <option value="general">General Question</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Tell us how we can help..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-gold" style="width: 100%;">Send Message</button>
+          </form>
+        </div>
+
+        <!-- Contact Info -->
+        <div>
+          <h2 style="margin-bottom: 8px;">Contact Information</h2>
+          <p style="color: var(--color-text-light); margin-bottom: 32px;">Prefer to call or text? Reach us directly at the number below.</p>
+
+          <div style="display: flex; flex-direction: column; gap: 24px; margin-bottom: 32px;">
+            <div style="display: flex; align-items: center; gap: 16px;">
+              <div class="footer-contact-icon" style="border-color: var(--color-gold);">
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--color-gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+              <div>
+                <a href="tel:9737316462" style="color: var(--color-gold); font-size: 1.25rem; font-weight: 700;">(973) 731-6462</a>
+                <p style="font-size: 0.85rem; color: var(--color-text-muted);">Call or Text To Schedule</p>
+              </div>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 16px;">
+              <div class="footer-contact-icon" style="border-color: var(--color-gold);">
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--color-gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div>
+                <a href="mailto:rawf20@yahoo.com" style="color: var(--color-gold); font-size: 1.1rem; font-weight: 700;">rawf20@yahoo.com</a>
+                <p style="font-size: 0.85rem; color: var(--color-text-muted);">Email Us Anytime</p>
+              </div>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 16px;">
+              <div class="footer-contact-icon" style="border-color: var(--color-gold);">
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--color-gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div>
+                <p style="color: var(--color-gold); font-weight: 700; font-size: 1.1rem;">Golf Cube Social</p>
+                <p style="font-size: 0.85rem; color: var(--color-text-muted);">Springfield, NJ</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hours -->
+          <div id="hours" style="background: var(--color-dark); color: var(--color-white); border-radius: var(--radius-md); padding: 28px;">
+            <h3 class="footer-card-title">Hours</h3>
+            <div class="hours-list">
+              <div class="hours-row">
+                <span class="hours-day">Monday - Friday</span>
+                <span class="hours-time">9AM - 8PM</span>
+              </div>
+              <div class="hours-row">
+                <span class="hours-day">Saturday</span>
+                <span class="hours-time">9AM - 8PM</span>
+              </div>
+              <div class="hours-row">
+                <span class="hours-day">Sunday</span>
+                <span class="hours-time">9AM - 8PM</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Map -->
+          <div class="map-container" style="margin-top: 24px;">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.0!2d-74.32!3d40.7!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sGolfCube+Social+Springfield+NJ!5e0!3m2!1sen!2sus!4v1" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="GolfCube Social location map"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-card">
+          <h3 class="footer-card-title">Get in Touch</h3>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div class="footer-contact-info">
+              <a href="tel:9737316462" class="phone">(973) 731-6462</a>
+              <p class="phone-sub">Call or Text To Schedule</p>
+            </div>
+          </div>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div class="footer-contact-info">
+              <p class="location-name">Golf Cube Social</p>
+              <p class="location-sub">Springfield NJ</p>
+            </div>
+          </div>
+        </div>
+        <div class="footer-card">
+          <h3 class="footer-card-title">First Timer?</h3>
+          <div class="first-timer-list">
+            <div class="first-timer-item">
+              <span class="first-timer-check">&#10003;</span>
+              <span>Bring your clubs — we'll work with what you play</span>
+            </div>
+            <div class="first-timer-item">
+              <span class="first-timer-check">&#10003;</span>
+              <span>Comfortable clothes — you'll be swinging, so dress to move</span>
+            </div>
+            <div class="first-timer-item">
+              <span class="first-timer-check">&#10003;</span>
+              <span>No experience needed — beginners are welcome</span>
+            </div>
+          </div>
+        </div>
+        <div class="footer-card">
+          <h3 class="footer-card-title">Hours</h3>
+          <div class="hours-list">
+            <div class="hours-row">
+              <span class="hours-day">Monday - Friday</span>
+              <span class="hours-time">9AM - 8PM</span>
+            </div>
+            <div class="hours-row">
+              <span class="hours-day">Saturday</span>
+              <span class="hours-time">9AM - 8PM</span>
+            </div>
+            <div class="hours-row">
+              <span class="hours-day">Sunday</span>
+              <span class="hours-time">9AM - 8PM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-bottom-logo">RAW <span class="logo-accent">Golf Academy</span></p>
+        <p class="footer-bottom-address">GolfCube Social — Springfield, NJ</p>
+        <p class="footer-bottom-copyright">&copy; 2025 Wenz Golf. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

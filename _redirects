@@ -1,0 +1,7 @@
+/wp-admin/*  /  301
+/?p=*        /  301
+/hello-world /  301
+/the-approach/ /approach/ 301
+/the-clubhouse/ /clubhouse/ 301
+/pro-shop/ /proshop/ 301
+/shop/ /proshop/ 301
