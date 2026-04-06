@@ -1,0 +1,153 @@
+---
+import Layout from '../components/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import GoldBar from '../components/GoldBar.astro';
+import { siteSettings, pricingPackages, testimonials, timeline, fundamentals } from '../lib/data';
+
+const phone = siteSettings.phone;
+const title = 'RAW Golf Academy — Master Your Swing. Play Better Golf.';
+const description = 'A proven, step-by-step golf instruction methodology rooted in over a century of teaching.';
+---
+
+<Layout title={title} description={description}>
+  <Navbar phone={phone} />
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <p class="hero-subtitle">Private Golf Instruction</p>
+        <h1>Master Your Swing.<br><span class="text-gold-italic">Play Better Golf.</span></h1>
+        <p class="hero-description">A proven, step-by-step methodology rooted in over a century of golf instruction — focusing on grip, stance, and posture to build rhythm, tempo, and balance. No gimmicks. Just fundamentals that work.</p>
+        <a href={`tel:${phone}`} class="btn btn-gold">Call to Schedule</a>
+      </div>
+      <div class="first-lesson-card">
+        <p class="card-label">Start Here</p>
+        <p class="card-title">Your First Lesson</p>
+        <p class="price">$135</p>
+        <p class="price-sub">Full 60-minute session on a GOLFZON simulator</p>
+        <div class="first-lesson-stats">
+          <div class="stat-item">
+            <span class="stat-number">100+</span>
+            <span class="stat-label">Years of Methodology</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">3</span>
+            <span class="stat-label">Core Fundamentals</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">0</span>
+            <span class="stat-label">Athletic Ability Required</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <GoldBar text={siteSettings.announcement_bar_text} />
+
+  <!-- Simulator Image -->
+  <section class="section" style="padding: 0;">
+    <img src="/images/facility/golfzon-simulator.jpg" alt="GOLFZON simulator bay at GolfCube Social" style="width: 100%; max-height: 420px; object-fit: cover;" width="1400" height="933">
+  </section>
+
+  <!-- The Wenz Method -->
+  <section class="method-section section" id="approach">
+    <div class="container">
+      <div class="method-grid">
+        <div>
+          <p class="section-label">The Wenz Method</p>
+          <h2 class="method-heading">A Methodology Rooted in<br><span class="text-gold-italic">Golf's Greatest Minds</span></h2>
+          <p class="method-text">Wenz Golf isn't about quick fixes or swing-of-the-week trends. It's a proven instructional approach built on the fundamentals taught by the legends who shaped modern golf instruction.</p>
+          <p class="method-text" style="margin-top:12px;">Taught by the lineage of Harry Vardon, Ernie Jones, Angel and Manuel de la Torre — renowned pros who proved that rhythm, tempo, and balance come naturally when the fundamentals are right.</p>
+        </div>
+        <div class="timeline">
+          {timeline.map((item) => (
+            <div class="timeline-item">
+              <h4 class="timeline-name">{item.name}</h4>
+              <p class="timeline-desc">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="gold-divider"></div>
+
+  <!-- Fundamentals Section -->
+  <section class="fundamentals-section section" id="fundamentals">
+    <div class="container text-center">
+      <p class="section-label">Three Pillars</p>
+      <h2>The Fundamentals That Matter</h2>
+      <p class="fundamentals-subtitle">Every lesson focuses on three core elements that require zero athletic ability — yet transform your entire game.</p>
+      <div class="fundamentals-grid">
+        {fundamentals.map((f) => (
+          <div class="fundamental-card">
+            <div class="fundamental-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" set:html={f.icon_svg} />
+            </div>
+            <h3>{f.title}</h3>
+            <p>{f.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section class="pricing-section section" id="pricing">
+    <div class="container text-center">
+      <p class="section-label">Lesson Packages</p>
+      <h2>Invest in Your Game</h2>
+      <p class="pricing-subtitle">Find a first-time evaluation or an ongoing improvement plan — the first step to your best game.</p>
+      <div class="pricing-grid">
+        {pricingPackages.map((pkg) => (
+          <div class={`pricing-card ${pkg.is_featured ? 'pricing-card-dark' : 'pricing-card-light'}`}>
+            {pkg.is_featured && pkg.badge_text && <span class="pricing-badge">{pkg.badge_text}</span>}
+            <p class="card-type">{pkg.title}</p>
+            <p class="price">{pkg.price}</p>
+            <p class="price-detail">{pkg.price_detail}</p>
+            <p class="pricing-desc">{pkg.description}</p>
+            <a href={`tel:${phone}`} class={`btn ${pkg.is_featured ? 'btn-gold' : 'btn-outline-dark'}`}>Call to Book</a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials-section section" id="testimonials">
+    <div class="container text-center">
+      <h2>Results Speak for Themselves</h2>
+      <div class="testimonials-grid">
+        {testimonials.map((t) => (
+          <div class="testimonial-card">
+            <p class="testimonial-stars">{'★'.repeat(t.stars || 5)}</p>
+            <p class="testimonial-text">"{t.text}"</p>
+            <p class="testimonial-author">{t.author}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section section" id="cta">
+    <div class="container text-center">
+      <h2>Ready to Play <span class="text-gold-italic">Your Best Golf</span>?</h2>
+      <p class="cta-description">Start with a 30-minute evaluation and discover how the right fundamentals can transform your game. Now teaching year-round at GolfCube Social in Springfield, NJ.</p>
+      <a href={`tel:${phone}`} class="btn btn-dark">Call to Schedule</a>
+    </div>
+  </section>
+
+  <Footer
+    phone={siteSettings.phone}
+    phone_formatted={siteSettings.phone_formatted}
+    location_name={siteSettings.location_name}
+    location_address={siteSettings.location_address}
+    hours={siteSettings.hours}
+    first_timer_tips={siteSettings.first_timer_tips}
+  />
+</Layout>

@@ -1,0 +1,128 @@
+---
+import '../styles/styles.css';
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{title}</title>
+  <meta name="description" content={description}>
+  <meta property="og:title" content={title}>
+  <meta property="og:description" content={description}>
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <slot />
+
+  <script>
+    // ===== Mobile Navigation =====
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+
+    if (hamburger && navLinks) {
+      hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navLinks.classList.toggle('active');
+      });
+
+      navLinks.querySelectorAll('a:not(.nav-dropdown > a)').forEach(link => {
+        link.addEventListener('click', () => {
+          hamburger.classList.remove('active');
+          navLinks.classList.remove('active');
+        });
+      });
+    }
+
+    // ===== Mobile Dropdown Toggles =====
+    document.querySelectorAll('.nav-dropdown > a').forEach(toggle => {
+      toggle.addEventListener('click', (e) => {
+        if (window.innerWidth <= 768) {
+          e.preventDefault();
+          const dropdown = toggle.parentElement;
+          if (dropdown) dropdown.classList.toggle('active');
+        }
+      });
+    });
+
+    // ===== Lightbox =====
+    function openLightbox(el: Element) {
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightboxImg') as HTMLImageElement;
+      if (lightbox && lightboxImg) {
+        const img = el.querySelector('img') as HTMLImageElement;
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeLightbox() {
+      const lightbox = document.getElementById('lightbox');
+      if (lightbox) {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    }
+
+    (window as any).openLightbox = openLightbox;
+    (window as any).closeLightbox = closeLightbox;
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLightbox();
+    });
+
+    // ===== Scroll Animations =====
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -40px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          (entry.target as HTMLElement).style.opacity = '1';
+          (entry.target as HTMLElement).style.transform = 'translateY(0)';
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const animateElements = document.querySelectorAll(
+        '.fundamental-card, .pricing-card, .testimonial-card, .blog-card, .product-card, .learning-step, .timeline-item'
+      );
+      animateElements.forEach((el, i) => {
+        (el as HTMLElement).style.opacity = '0';
+        (el as HTMLElement).style.transform = 'translateY(20px)';
+        (el as HTMLElement).style.transition = `opacity 0.5s ease ${i % 3 * 0.1}s, transform 0.5s ease ${i % 3 * 0.1}s`;
+        observer.observe(el);
+      });
+    });
+
+    // ===== Navbar Background on Scroll =====
+    const navbar = document.querySelector('.navbar') as HTMLElement;
+    if (navbar) {
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 10) {
+          navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.3)';
+        } else {
+          navbar.style.boxShadow = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>

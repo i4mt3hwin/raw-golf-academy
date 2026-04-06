@@ -1,0 +1,57 @@
+---
+import Layout from '../../components/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+import { siteSettings, blogPosts } from '../../lib/data';
+
+export function getStaticPaths() {
+  return blogPosts
+    .filter(p => p.status === 'published' && p.slug)
+    .map(p => ({ params: { slug: p.slug } }));
+}
+
+const { slug } = Astro.params;
+const phone = siteSettings.phone;
+const post = blogPosts.find(p => p.slug === slug);
+if (!post) return Astro.redirect('/clubhouse/');
+
+const title = `${post.title} — RAW Golf Academy`;
+const description = post.excerpt;
+---
+
+<Layout title={title} description={description}>
+  <Navbar phone={phone} activePage="clubhouse" />
+
+  <div class="article-header">
+    <div class="container" style="max-width: 720px;">
+      <a href="/clubhouse/" style="color: var(--color-gold); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">&larr; Back to The Clubhouse</a>
+      <p class="blog-card-date" style="margin-top: 24px;">{post.date} &bull; Golf Tips &bull; By {post.author}</p>
+      <h1 style="margin-top: 12px;">{post.title}</h1>
+    </div>
+  </div>
+
+  <article class="article-content">
+    <div class="container" style="max-width: 720px;">
+      <div style="width:100%;height:300px;background:var(--color-beige);display:flex;align-items:center;justify-content:center;border-radius:var(--radius-md);margin-bottom:32px;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" style="width:64px;height:64px;color:var(--color-gold)" set:html={post.icon_svg || ''} />
+      </div>
+
+      <div set:html={post.body} />
+
+      <div style="margin-top: 48px; padding: 24px; background: var(--color-beige); border-radius: var(--radius-md); border-left: 3px solid var(--color-gold);">
+        <p style="font-weight: 700; margin-bottom: 8px;">Ready to Work on Your Game?</p>
+        <p style="font-size: 0.9rem; color: var(--color-text-light); margin-bottom: 16px;">Book a lesson and get personalized instruction with real-time feedback on the GOLFZON simulator.</p>
+        <a href={`tel:${phone}`} class="btn btn-gold">Book a Lesson</a>
+      </div>
+    </div>
+  </article>
+
+  <Footer
+    phone={siteSettings.phone}
+    phone_formatted={siteSettings.phone_formatted}
+    location_name={siteSettings.location_name}
+    location_address={siteSettings.location_address}
+    hours={siteSettings.hours}
+    first_timer_tips={siteSettings.first_timer_tips}
+  />
+</Layout>

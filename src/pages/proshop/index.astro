@@ -1,0 +1,53 @@
+---
+import Layout from '../../components/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+import { siteSettings, products } from '../../lib/data';
+
+const phone = siteSettings.phone;
+const title = 'Pro Shop — RAW Golf Academy';
+const description = 'Shop golf gear, apparel, and accessories from RAW Golf Academy.';
+---
+
+<Layout title={title} description={description}>
+  <Navbar phone={phone} />
+
+  <div class="page-header text-center">
+    <div class="container">
+      <p class="section-label">Shop</p>
+      <h1>Pro Shop</h1>
+      <p>Quality gear, apparel, and accessories curated by RAW Golf Academy.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="product-grid">
+        {products.map((product) => (
+          <div class="product-card">
+            <img class="product-card-image" src={product.image} alt={product.image_alt || product.title} loading="lazy" width="800" height="533">
+            <div class="product-card-content">
+              <p class="product-card-name">{product.title}</p>
+              <p class="product-card-price">{product.price_label}</p>
+              <p class="product-card-desc">{product.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="text-center" style="margin-top: 48px;">
+        <p style="color: var(--color-text-light); margin-bottom: 16px;">Interested in purchasing? Contact us to order or visit in person at GolfCube Social.</p>
+        <a href={`tel:${phone}`} class="btn btn-gold">Call to Order</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer
+    phone={siteSettings.phone}
+    phone_formatted={siteSettings.phone_formatted}
+    location_name={siteSettings.location_name}
+    location_address={siteSettings.location_address}
+    hours={siteSettings.hours}
+    first_timer_tips={siteSettings.first_timer_tips}
+  />
+</Layout>

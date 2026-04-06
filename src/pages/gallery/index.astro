@@ -1,0 +1,64 @@
+---
+import Layout from '../../components/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+import { siteSettings, galleryPhotos } from '../../lib/data';
+
+const phone = siteSettings.phone;
+const title = 'Gallery — RAW Golf Academy';
+const description = 'Photos and videos from RAW Golf Academy at GolfCube Social, Springfield, NJ.';
+---
+
+<Layout title={title} description={description}>
+  <Navbar phone={phone} activePage="gallery" />
+
+  <div class="page-header text-center">
+    <div class="container">
+      <p class="section-label">See the Academy</p>
+      <h1>Gallery</h1>
+      <p>A look inside RAW Golf Academy and the GOLFZON simulator experience at GolfCube Social.</p>
+    </div>
+  </div>
+
+  <section class="section" id="photos">
+    <div class="container">
+      <p class="section-label">Photos</p>
+      <h2 style="margin-bottom: 32px;">On the Course &amp; In the Sim</h2>
+      <div class="gallery-grid">
+        {galleryPhotos.map((photo) => (
+          <div class="gallery-item" onclick="openLightbox(this)">
+            <img src={photo.src} alt={photo.alt} loading="lazy" width="800" height="533">
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background: var(--color-beige);" id="videos">
+    <div class="container text-center">
+      <p class="section-label">Videos</p>
+      <h2 style="margin-bottom: 16px;">Lessons in Action</h2>
+      <p style="color: var(--color-text-light); margin-bottom: 32px;">Video content coming soon. Check back for swing breakdowns, lesson highlights, and more.</p>
+      <div style="background: var(--color-dark); color: var(--color-white); border-radius: var(--radius-md); padding: 60px 24px; max-width: 640px; margin: 0 auto;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width: 48px; height: 48px; margin: 0 auto 16px; color: var(--color-gold);"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        <p style="font-size: 1.1rem; font-weight: 600;">Video Gallery Coming Soon</p>
+        <p style="color: #999; font-size: 0.9rem; margin-top: 8px;">Follow along with swing tips, lesson recaps, and student progress.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <button class="lightbox-close" aria-label="Close">&times;</button>
+    <img id="lightboxImg" src="" alt="">
+  </div>
+
+  <Footer
+    phone={siteSettings.phone}
+    phone_formatted={siteSettings.phone_formatted}
+    location_name={siteSettings.location_name}
+    location_address={siteSettings.location_address}
+    hours={siteSettings.hours}
+    first_timer_tips={siteSettings.first_timer_tips}
+  />
+</Layout>

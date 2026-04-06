@@ -1,0 +1,38 @@
+---
+interface Props {
+  phone?: string;
+  activePage?: string;
+}
+
+const { phone = '9737316462', activePage = '' } = Astro.props;
+---
+
+<nav class="navbar">
+  <div class="container">
+    <a href="/" class="navbar-logo">RAW <span class="logo-accent">Golf Academy</span></a>
+    <div class="navbar-links" id="navLinks">
+      <a href="/approach/" class:list={[{ active: activePage === 'approach' }]}>The Approach</a>
+      <div class="nav-dropdown">
+        <a href="/gallery/" class:list={[{ active: activePage === 'gallery' }]}>Gallery</a>
+        <div class="nav-dropdown-menu">
+          <a href="/gallery/">Photos</a>
+          <a href="/gallery/#videos">Videos</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <a href="/clubhouse/" class:list={[{ active: activePage === 'clubhouse' }]}>The Clubhouse</a>
+        <div class="nav-dropdown-menu">
+          <a href="/clubhouse/">All Posts</a>
+          <a href="/blog/top-5-grip-tips/">Top 5 Grip Tips</a>
+        </div>
+      </div>
+      <a href="/contact/" class:list={[{ active: activePage === 'contact' }]}>Contact</a>
+      <a href={`tel:${phone}`} class="navbar-cta">Book a Lesson</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</nav>

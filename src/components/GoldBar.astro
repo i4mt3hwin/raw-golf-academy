@@ -1,0 +1,9 @@
+---
+interface Props {
+  text?: string;
+}
+
+const { text = 'Now teaching at GolfCube Social — Springfield, NJ \u00a0|\u00a0 Private indoor lessons on GOLFZON simulators' } = Astro.props;
+---
+
+<div class="gold-bar" set:html={text} />

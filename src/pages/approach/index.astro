@@ -1,0 +1,108 @@
+---
+import Layout from '../../components/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+import { siteSettings, timeline, learningSteps } from '../../lib/data';
+
+const phone = siteSettings.phone;
+const title = 'The Approach — RAW Golf Academy';
+const description = 'The R.A.W. method: a systematic golf instruction program built on the lineage of Harry Vardon, Ernie Jones, and Manuel de la Torre.';
+
+const methodologyText = 'The R.A.W. method represents a systematic program addressing all aspects of the swing. Whether you\'re a dedicated golfer looking to refine your technique, someone struggling to break 90, or a complete beginner picking up a club for the first time — this approach meets you where you are.';
+const methodologyText2 = 'Richard A. Wenz teaches a methodology rooted in the lineage of Harry Vardon, Ernie Jones, and Manuel de la Torre. The approach emphasizes three core fundamentals — grip, stance, and posture — to develop rhythm, tempo, and balance.';
+---
+
+<Layout title={title} description={description}>
+  <Navbar phone={phone} activePage="approach" />
+
+  <div class="page-header text-center">
+    <div class="container">
+      <p class="section-label">The R.A.W. Method</p>
+      <h1>The Approach</h1>
+      <p>A step-by-step method built on legends — addressing every aspect of your swing through proven fundamentals.</p>
+    </div>
+  </div>
+
+  <section style="padding: 0;">
+    <img src="/images/facility/lounge-area.jpg" alt="GolfCube Social lounge and simulator area" style="width: 100%; max-height: 420px; object-fit: cover;" width="1400" height="933">
+  </section>
+
+  <section class="approach-intro section">
+    <div class="container">
+      <div class="approach-grid">
+        <div>
+          <h2>A Systematic Program for <span class="text-gold-italic">Every Golfer</span></h2>
+          <p style="color: var(--color-text-light); margin-top: 16px; line-height: 1.8;">{methodologyText}</p>
+          <p style="color: var(--color-text-light); margin-top: 16px; line-height: 1.8;">{methodologyText2}</p>
+          <p style="color: var(--color-gold); font-weight: 600; margin-top: 20px; font-size: 1.1rem;">No athletic ability required.</p>
+        </div>
+        <div>
+          <h3 style="margin-bottom: 8px;">Teaching Philosophy</h3>
+          <p style="color: var(--color-text-light); line-height: 1.8; margin-bottom: 24px;">The method avoids quick-fix approaches and swing-of-the-week trends. Instead, it builds on proven fundamentals that have produced results for over a century. When the fundamentals are right, rhythm, tempo, and balance come naturally.</p>
+          <h3 style="margin-bottom: 8px;">What Makes It Different</h3>
+          <p style="color: var(--color-text-light); line-height: 1.8;">Three foundational elements and proper fundamentals naturally produce desired outcomes. No gimmicks, no gadgets — just the same teaching principles that shaped generations of great golfers, enhanced with modern GOLFZON simulator technology for real-time feedback.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background: var(--color-beige);">
+    <div class="container">
+      <div class="text-center" style="margin-bottom: 48px;">
+        <p class="section-label">Step by Step</p>
+        <h2>The Learning Path</h2>
+        <p style="color: var(--color-text-light); margin-top: 12px;">A progressive approach that builds each skill on the last</p>
+      </div>
+      <div style="max-width: 640px; margin: 0 auto;">
+        <div class="learning-path">
+          {learningSteps.map((s) => (
+            <div class="learning-step">
+              <div class="learning-step-number">{s.step}</div>
+              <div class="learning-step-content">
+                <h4>{s.title}</h4>
+                <p>{s.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="method-section section">
+    <div class="container">
+      <div class="method-grid">
+        <div>
+          <p class="section-label">The Lineage</p>
+          <h2 class="method-heading">A Century of<br><span class="text-gold-italic">Proven Instruction</span></h2>
+          <p class="method-text">The teaching principles behind the R.A.W. method trace back over 150 years through a direct lineage of golf's most influential instructors. Each generation refined and carried forward a philosophy rooted in natural mechanics and fundamental mastery.</p>
+        </div>
+        <div class="timeline">
+          {timeline.map((item) => (
+            <div class="timeline-item">
+              <h4 class="timeline-name">{item.name}</h4>
+              <p class="timeline-desc">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section section">
+    <div class="container text-center">
+      <h2>Ready to Start <span class="text-gold-italic">Your Journey</span>?</h2>
+      <p class="cta-description">Book your first lesson and experience the R.A.W. method for yourself. $135 for a full 60-minute session on a GOLFZON simulator.</p>
+      <a href={`tel:${phone}`} class="btn btn-dark">Call to Schedule</a>
+    </div>
+  </section>
+
+  <Footer
+    phone={siteSettings.phone}
+    phone_formatted={siteSettings.phone_formatted}
+    location_name={siteSettings.location_name}
+    location_address={siteSettings.location_address}
+    hours={siteSettings.hours}
+    first_timer_tips={siteSettings.first_timer_tips}
+  />
+</Layout>

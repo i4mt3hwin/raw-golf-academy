@@ -1,0 +1,67 @@
+---
+import Layout from '../../components/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+import { siteSettings, blogPosts } from '../../lib/data';
+
+const phone = siteSettings.phone;
+const title = 'The Clubhouse — RAW Golf Academy Blog';
+const description = 'Golf tips, swing advice, and insights from RAW Golf Academy.';
+---
+
+<Layout title={title} description={description}>
+  <Navbar phone={phone} activePage="clubhouse" />
+
+  <div class="page-header text-center">
+    <div class="container">
+      <p class="section-label">Blog &amp; Articles</p>
+      <h1>The Clubhouse</h1>
+      <p>Golf tips, swing insights, and lessons from the R.A.W. method. Your resource for playing better golf.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="blog-grid">
+        {blogPosts.map((post) => {
+          const isPublished = post.status === 'published' && post.slug;
+          const Tag = isPublished ? 'a' : 'div';
+          return (
+            <Tag
+              href={isPublished ? `/blog/${post.slug}/` : undefined}
+              class="blog-card"
+              style={!isPublished ? 'opacity: 0.6;' : ''}
+            >
+              <div style="width:100%;height:200px;background:var(--color-beige);display:flex;align-items:center;justify-content:center;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style={`width:48px;height:48px;color:${isPublished ? 'var(--color-gold)' : 'var(--color-text-muted)'}`} set:html={post.icon_svg || ''} />
+              </div>
+              <div class="blog-card-content">
+                <p class="blog-card-date">{post.date}{isPublished ? ' \u2022 Golf Tips' : ''}</p>
+                <h3 class="blog-card-title">{post.title}</h3>
+                <p class="blog-card-excerpt">{post.excerpt}</p>
+                <span class="blog-card-link" style={!isPublished ? 'color: var(--color-text-muted);' : ''}>{isPublished ? 'Read More \u2192' : 'Coming Soon'}</span>
+              </div>
+            </Tag>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section section">
+    <div class="container text-center">
+      <h2>Have a Topic in Mind?</h2>
+      <p class="cta-description">We're always looking for questions to answer. Reach out and let us know what you'd like to learn about.</p>
+      <a href={`tel:${phone}`} class="btn btn-dark">Call to Schedule</a>
+    </div>
+  </section>
+
+  <Footer
+    phone={siteSettings.phone}
+    phone_formatted={siteSettings.phone_formatted}
+    location_name={siteSettings.location_name}
+    location_address={siteSettings.location_address}
+    hours={siteSettings.hours}
+    first_timer_tips={siteSettings.first_timer_tips}
+  />
+</Layout>

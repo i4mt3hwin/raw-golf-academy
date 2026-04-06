@@ -1,0 +1,82 @@
+---
+interface Props {
+  phone?: string;
+  phone_formatted?: string;
+  location_name?: string;
+  location_address?: string;
+  hours?: { day: string; time: string }[];
+  first_timer_tips?: string[];
+}
+
+const {
+  phone = '9737316462',
+  phone_formatted = '(973) 731-6462',
+  location_name = 'Golf Cube Social',
+  location_address = 'Springfield NJ',
+  hours = [
+    { day: 'Monday - Friday', time: '9AM - 8PM' },
+    { day: 'Saturday', time: '9AM - 8PM' },
+    { day: 'Sunday', time: '9AM - 8PM' },
+  ],
+  first_timer_tips = [
+    "Bring your clubs — we'll work with what you play",
+    "Comfortable clothes — you'll be swinging, so dress to move",
+    "No experience needed — beginners are welcome",
+  ],
+} = Astro.props;
+---
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-card">
+        <h3 class="footer-card-title">Get in Touch</h3>
+        <div class="footer-contact-item">
+          <div class="footer-contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div class="footer-contact-info">
+            <a href={`tel:${phone}`} class="phone">{phone_formatted}</a>
+            <p class="phone-sub">Call or Text To Schedule</p>
+          </div>
+        </div>
+        <div class="footer-contact-item">
+          <div class="footer-contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div class="footer-contact-info">
+            <p class="location-name">{location_name}</p>
+            <p class="location-sub">{location_address}</p>
+          </div>
+        </div>
+      </div>
+      <div class="footer-card">
+        <h3 class="footer-card-title">First Timer?</h3>
+        <div class="first-timer-list">
+          {first_timer_tips.map(tip => (
+            <div class="first-timer-item">
+              <span class="first-timer-check">&#10003;</span>
+              <span>{tip}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div class="footer-card">
+        <h3 class="footer-card-title">Hours</h3>
+        <div class="hours-list">
+          {hours.map(h => (
+            <div class="hours-row">
+              <span class="hours-day">{h.day}</span>
+              <span class="hours-time">{h.time}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-bottom-logo">RAW <span class="logo-accent">Golf Academy</span></p>
+      <p class="footer-bottom-address">{location_name} — {location_address}</p>
+      <p class="footer-bottom-copyright">&copy; 2025 Wenz Golf. All Rights Reserved.</p>
+    </div>
+  </div>
+</footer>
