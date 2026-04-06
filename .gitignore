@@ -18,3 +18,10 @@ playwright.config.js
 tests/
 test-results/
 docs/
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example
