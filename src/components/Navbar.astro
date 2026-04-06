@@ -7,7 +7,7 @@ interface Props {
 const { phone = '9737316462', activePage = '' } = Astro.props;
 ---
 
-<nav class="navbar">
+<nav class="navbar" transition:persist>
   <div class="container">
     <a href="/" class="navbar-logo">RAW <span class="logo-accent">Golf Academy</span></a>
     <div class="navbar-links" id="navLinks">
