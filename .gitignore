@@ -6,3 +6,15 @@ page_*.png
 section_*.png
 screencapture-*.pdf
 Scatch Images/
+
+# Terminal Paste Image folder
+.cp-images/
+
+# Dev/test artifacts
+node_modules/
+package.json
+package-lock.json
+playwright.config.js
+tests/
+test-results/
+docs/
