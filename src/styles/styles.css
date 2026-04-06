@@ -1357,14 +1357,11 @@ h4 { font-size: 1.25rem; }
 
   /* CTA button in mobile menu */
   .navbar-links > .navbar-cta {
+    width: auto;
     margin: 20px 24px 32px;
     text-align: center;
-    box-sizing: border-box;
     display: block;
-    border-bottom: none !important;
-    border: 2px solid var(--color-gold);
     padding: 14px 20px;
-    max-width: calc(100% - 48px);
   }
 
   /* Hero mobile */
