@@ -34,10 +34,10 @@ const { title, description } = Astro.props;
       to { opacity: 0; filter: blur(4px); }
     }
     ::view-transition-old(root) {
-      animation: blur-fade-out 0.25s ease-in forwards;
+      animation: blur-fade-out 0.5s ease-in forwards;
     }
     ::view-transition-new(root) {
-      animation: blur-fade-in 0.25s ease-out forwards;
+      animation: blur-fade-in 0.5s ease-out forwards;
     }
   </style>
 </head>
