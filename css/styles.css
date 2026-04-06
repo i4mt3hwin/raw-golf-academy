@@ -1289,8 +1289,7 @@ h4 { font-size: 1.25rem; }
   }
 
   /* Top-level nav items */
-  .navbar-links > a,
-  .navbar-links > .nav-dropdown > a {
+  .navbar-links > a {
     display: block;
     padding: 14px 24px;
     border-bottom: 1px solid rgba(255,255,255,0.08);
@@ -1305,8 +1304,18 @@ h4 { font-size: 1.25rem; }
   }
 
   .navbar-links > .nav-dropdown > a {
-    border-bottom: none;
+    display: flex;
+    align-items: center;
     justify-content: space-between;
+    padding: 14px 24px;
+    width: 100%;
+    font-size: 1rem;
+    border-bottom: none;
+  }
+
+  .navbar-links > .nav-dropdown > a::after {
+    margin-left: auto;
+    flex-shrink: 0;
   }
 
   /* Dropdown sub-menus on mobile */
@@ -1348,9 +1357,10 @@ h4 { font-size: 1.25rem; }
 
   /* CTA button in mobile menu */
   .navbar-links > .navbar-cta {
-    margin: 20px 24px 8px;
+    margin: 20px 24px 24px;
     text-align: center;
-    width: calc(100% - 48px);
+    box-sizing: border-box;
+    width: auto;
     display: block;
     border-bottom: none;
     padding: 14px 20px;
