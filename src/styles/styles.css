@@ -1272,7 +1272,7 @@ h4 { font-size: 1.25rem; }
     background: var(--color-dark);
     flex-direction: column;
     align-items: stretch;
-    padding: 8px 0;
+    padding: 8px 0 0;
     gap: 0;
     overflow-y: auto;
     transform: translateY(-100%);
@@ -1357,13 +1357,12 @@ h4 { font-size: 1.25rem; }
 
   /* CTA button in mobile menu */
   .navbar-links > .navbar-cta {
-    margin: 20px 24px 24px;
+    margin: 20px 24px 32px;
     text-align: center;
     box-sizing: border-box;
-    left: 0;
-    right: 0;
     display: block;
-    border-bottom: none;
+    border-bottom: none !important;
+    border: 2px solid var(--color-gold);
     padding: 14px 20px;
     max-width: calc(100% - 48px);
   }
