@@ -23,3 +23,10 @@ test-results/
 
 # Misc
 docs/
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example
