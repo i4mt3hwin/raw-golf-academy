@@ -45,6 +45,27 @@ export const proshopPhotos = [
   { src: '/images/proshop/taylormade-gloves-closeup.jpg', alt: 'TaylorMade TP glove detail' },
 ];
 
+// GOLFZON simulator data section (Approach page)
+export const simulatorData = {
+  label: 'Real-Time Feedback',
+  title: 'Every Swing, Measured',
+  body: "The GOLFZON Wave at GolfCube Social tracks 34 data points on every shot. Rich uses the numbers to spot what's actually happening at impact: a casting motion, an open face, an inconsistent low point. Then he uses the same data to verify in real time that the correction is working. Feedback you can trust, not just feel.",
+  categories: [
+    {
+      name: 'Swing Mechanics',
+      metrics: 'Clubhead speed, club path, attack angle, face angle, dynamic loft',
+    },
+    {
+      name: 'Ball Flight',
+      metrics: 'Ball speed, launch angle, spin rate, spin axis, smash factor',
+    },
+    {
+      name: 'Results',
+      metrics: 'Carry distance, total distance, shot shape, dispersion',
+    },
+  ],
+};
+
 // Pricing packages
 export const pricingPackages = [
   { title: 'Single Lesson', price: '$135', price_detail: '60 minutes per session', description: 'Full-hour session with detailed feedback', is_featured: false, badge_text: '' },

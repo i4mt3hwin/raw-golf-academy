@@ -2,7 +2,7 @@
 import Layout from '../../components/Layout.astro';
 import Navbar from '../../components/Navbar.astro';
 import Footer from '../../components/Footer.astro';
-import { siteSettings, timeline, learningSteps, instructorBio } from '../../lib/data';
+import { siteSettings, timeline, learningSteps, instructorBio, simulatorData } from '../../lib/data';
 
 const phone = siteSettings.phone;
 const title = 'The Approach | RAW Golf Academy';
@@ -42,6 +42,24 @@ const methodologyText2 = 'Richard A. Wenz teaches a methodology rooted in the li
           <h3>What Makes It Different</h3>
           <p>Three foundational elements and proper fundamentals naturally produce desired outcomes. No gimmicks, no gadgets, just the same teaching principles that shaped generations of great golfers, enhanced with modern GOLFZON simulator technology for real-time feedback.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sim-section section">
+    <div class="container">
+      <div class="sim-intro">
+        <p class="section-label">{simulatorData.label}</p>
+        <h2>Every Swing, <span class="text-gold-italic">Measured</span></h2>
+        <p class="sim-body">{simulatorData.body}</p>
+      </div>
+      <div class="sim-metrics-grid">
+        {simulatorData.categories.map((cat) => (
+          <div class="sim-metric-category">
+            <h4>{cat.name}</h4>
+            <p>{cat.metrics}</p>
+          </div>
+        ))}
       </div>
     </div>
   </section>
