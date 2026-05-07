@@ -19,7 +19,7 @@ const localBusinessSchema = {
   '@type': ['LocalBusiness', 'SportsActivityLocation'],
   '@id': `${siteOrigin}#business`,
   name: 'RAW Golf Academy',
-  description: 'Private golf instruction at GolfCube Social — the R.A.W. method on GOLFZON simulators.',
+  description: 'Private golf instruction at GolfCube Social: the R.A.W. method on GOLFZON simulators.',
   url: siteOrigin,
   image: ogImageUrl,
   telephone: `+1${siteSettings.phone}`,
@@ -159,7 +159,7 @@ const localBusinessSchema = {
     document.addEventListener('DOMContentLoaded', initPage);
     document.addEventListener('astro:page-load', initPage);
 
-    // ===== Mobile Navigation (persisted navbar — bind once) =====
+    // ===== Mobile Navigation (persisted navbar, bind once) =====
     document.addEventListener('astro:page-load', () => {
       const hamburger = document.getElementById('hamburger');
       const navLinks = document.getElementById('navLinks');

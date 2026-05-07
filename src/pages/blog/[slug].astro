@@ -15,7 +15,7 @@ const phone = siteSettings.phone;
 const post = blogPosts.find(p => p.slug === slug);
 if (!post) return Astro.redirect('/clubhouse/');
 
-const title = `${post.title} — RAW Golf Academy`;
+const title = `${post.title} | RAW Golf Academy`;
 const description = post.excerpt;
 ---
 

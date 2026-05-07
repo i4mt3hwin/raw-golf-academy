@@ -6,7 +6,7 @@ import GoldBar from '../components/GoldBar.astro';
 import { siteSettings, pricingPackages, testimonials, timeline, fundamentals } from '../lib/data';
 
 const phone = siteSettings.phone;
-const title = 'RAW Golf Academy — Master Your Swing. Play Better Golf.';
+const title = 'RAW Golf Academy: Master Your Swing. Play Better Golf.';
 const description = 'A proven, step-by-step golf instruction methodology rooted in over a century of teaching.';
 ---
 
@@ -19,7 +19,7 @@ const description = 'A proven, step-by-step golf instruction methodology rooted 
       <div class="hero-content">
         <p class="hero-subtitle">Private Golf Instruction</p>
         <h1>Master Your Swing.<br><span class="text-gold-italic">Play Better Golf.</span></h1>
-        <p class="hero-description">A proven, step-by-step methodology rooted in over a century of golf instruction — focusing on grip, stance, and posture to build rhythm, tempo, and balance. No gimmicks. Just fundamentals that work.</p>
+        <p class="hero-description">A proven, step-by-step methodology rooted in over a century of golf instruction, focused on grip, stance, and posture to build rhythm, tempo, and balance. No gimmicks. Just fundamentals that work.</p>
         <a href={`tel:${phone}`} class="btn btn-gold">Call to Schedule</a>
       </div>
       <div class="first-lesson-card">
@@ -60,7 +60,7 @@ const description = 'A proven, step-by-step golf instruction methodology rooted 
           <p class="section-label">The Wenz Method</p>
           <h2 class="method-heading">A Methodology Rooted in<br><span class="text-gold-italic">Golf's Greatest Minds</span></h2>
           <p class="method-text">Wenz Golf isn't about quick fixes or swing-of-the-week trends. It's a proven instructional approach built on the fundamentals taught by the legends who shaped modern golf instruction.</p>
-          <p class="method-text">Taught by the lineage of Harry Vardon, Ernie Jones, Angel and Manuel de la Torre — renowned pros who proved that rhythm, tempo, and balance come naturally when the fundamentals are right.</p>
+          <p class="method-text">Taught by the lineage of Harry Vardon, Ernie Jones, Angel and Manuel de la Torre, renowned pros who proved that rhythm, tempo, and balance come naturally when the fundamentals are right.</p>
         </div>
         <div class="timeline">
           {timeline.map((item) => (
@@ -81,7 +81,7 @@ const description = 'A proven, step-by-step golf instruction methodology rooted 
     <div class="container text-center">
       <p class="section-label">Three Pillars</p>
       <h2>The Fundamentals That Matter</h2>
-      <p class="fundamentals-subtitle">Every lesson focuses on three core elements that require zero athletic ability — yet transform your entire game.</p>
+      <p class="fundamentals-subtitle">Every lesson focuses on three core elements that require zero athletic ability, yet transform your entire game.</p>
       <div class="fundamentals-grid">
         {fundamentals.map((f) => (
           <div class="fundamental-card">
@@ -101,7 +101,7 @@ const description = 'A proven, step-by-step golf instruction methodology rooted 
     <div class="container text-center">
       <p class="section-label">Lesson Packages</p>
       <h2>Invest in Your Game</h2>
-      <p class="pricing-subtitle">Find a first-time evaluation or an ongoing improvement plan — the first step to your best game.</p>
+      <p class="pricing-subtitle">Find a first-time evaluation or an ongoing improvement plan: the first step to your best game.</p>
       <div class="pricing-grid">
         {pricingPackages.map((pkg) => (
           <div class={`pricing-card ${pkg.is_featured ? 'pricing-card-dark' : 'pricing-card-light'}`}>
