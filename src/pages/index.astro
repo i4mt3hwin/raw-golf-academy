@@ -15,42 +15,28 @@ const description = 'A proven, step-by-step golf instruction methodology rooted 
 
   <!-- Hero Section -->
   <section class="hero">
-    <div class="container">
+    <div class="hero-image">
+      <img
+        src="/images/facility/golfzon-simulator.jpg"
+        alt="GOLFZON Wave simulator bay at GolfCube Social"
+        fetchpriority="high"
+        loading="eager"
+        width="2400"
+        height="1600"
+      />
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="container hero-container">
       <div class="hero-content">
-        <p class="hero-subtitle">Private Golf Instruction</p>
-        <h1>Master Your Swing.<br><span class="text-gold-italic">Play Better Golf.</span></h1>
-        <p class="hero-description">A proven, step-by-step methodology rooted in over a century of golf instruction, focused on grip, stance, and posture to build rhythm, tempo, and balance. No gimmicks. Just fundamentals that work.</p>
+        <p class="hero-eyebrow">Private Golf Instruction</p>
+        <h1 class="hero-title">Master Your Swing.<br><span class="text-gold-italic">Play Better Golf.</span></h1>
+        <p class="hero-meta">30+ years of teaching · GOLFZON Wave simulators · Springfield, NJ</p>
         <a href={`tel:${phone}`} class="btn btn-gold">Call to Schedule</a>
-      </div>
-      <div class="first-lesson-card">
-        <p class="card-label">Start Here</p>
-        <p class="card-title">Your First Lesson</p>
-        <p class="price">$135</p>
-        <p class="price-sub">Full 60-minute session on a GOLFZON simulator</p>
-        <div class="first-lesson-stats">
-          <div class="stat-item">
-            <span class="stat-number">100+</span>
-            <span class="stat-label">Years of Methodology</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-number">3</span>
-            <span class="stat-label">Core Fundamentals</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-number">0</span>
-            <span class="stat-label">Athletic Ability Required</span>
-          </div>
-        </div>
       </div>
     </div>
   </section>
 
   <GoldBar text={siteSettings.announcement_bar_text} />
-
-  <!-- Simulator Image -->
-  <section class="section-flush">
-    <img src="/images/facility/golfzon-simulator.jpg" alt="GOLFZON simulator bay at GolfCube Social" class="section-image-band" width="1400" height="933">
-  </section>
 
   <!-- The Wenz Method -->
   <section class="method-section section" id="approach">
