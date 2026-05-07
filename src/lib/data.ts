@@ -53,8 +53,11 @@ export const pricingPackages = [
 
 // Testimonials
 export const testimonials = [
-  { text: 'After three lessons, my grip completely changed — and so did my consistency off the tee. Wenz breaks it down simply.', author: '— Satisfied Student', stars: 5 },
-  { text: 'I came in shooting 105. After the six-lesson package, I broke 90 for the first time. Posture and tempo were game-changers.', author: '— Satisfied Student', stars: 5 },
+  {
+    text: "I've played golf on and off for nearly 10 years — recently I started getting more into it but I was having problems making solid connection with my irons. Rich was able to quickly identify my casting issue and correct my swing. Massively improved my game.",
+    author: '— Kevin Dillon',
+    stars: 5,
+  },
 ];
 
 // Timeline (used on home + approach)
