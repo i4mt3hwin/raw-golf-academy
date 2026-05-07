@@ -29,17 +29,16 @@ const description = 'Golf tips, swing advice, and insights from RAW Golf Academy
           return (
             <Tag
               href={isPublished ? `/blog/${post.slug}/` : undefined}
-              class="blog-card"
-              style={!isPublished ? 'opacity: 0.6;' : ''}
+              class:list={['blog-card', { 'is-coming-soon': !isPublished }]}
             >
-              <div style="width:100%;height:200px;background:var(--color-beige);display:flex;align-items:center;justify-content:center;">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style={`width:48px;height:48px;color:${isPublished ? 'var(--color-gold)' : 'var(--color-text-muted)'}`} set:html={post.icon_svg || ''} />
+              <div class="blog-card-placeholder">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" set:html={post.icon_svg || ''} />
               </div>
               <div class="blog-card-content">
                 <p class="blog-card-date">{post.date}{isPublished ? ' \u2022 Golf Tips' : ''}</p>
                 <h3 class="blog-card-title">{post.title}</h3>
                 <p class="blog-card-excerpt">{post.excerpt}</p>
-                <span class="blog-card-link" style={!isPublished ? 'color: var(--color-text-muted);' : ''}>{isPublished ? 'Read More \u2192' : 'Coming Soon'}</span>
+                <span class="blog-card-link">{isPublished ? 'Read More \u2192' : 'Coming Soon'}</span>
               </div>
             </Tag>
           );
@@ -52,7 +51,7 @@ const description = 'Golf tips, swing advice, and insights from RAW Golf Academy
     <div class="container text-center">
       <h2>Have a Topic in Mind?</h2>
       <p class="cta-description">We're always looking for questions to answer. Reach out and let us know what you'd like to learn about.</p>
-      <a href={`tel:${phone}`} class="btn btn-dark">Call to Schedule</a>
+      <a href={`tel:${phone}`} class="btn btn-gold">Call to Schedule</a>
     </div>
   </section>
 

@@ -17,6 +17,34 @@ export const siteSettings = {
   ],
 };
 
+// Instructor bio (used on Approach page)
+export const instructorBio = {
+  name: 'Richard Allen Wenz',
+  title: 'Professional Golf Teacher and Instructor',
+  paragraphs: [
+    'Richard has been a teacher and instructor for over 30 years, training alongside some of the highest-level professional instructors in North America. He teaches with a patient approach and high attention to detail, helping golfers at every level reach their full potential.',
+    'Combining experience as the owner of a driving range and indoor golf simulator environment with advanced knowledge of golf equipment from running a high-level pro shop, Richard offers a holistic approach to the game.',
+    'He has successfully mentored players to tournament wins at the junior, college, and amateur levels.',
+  ],
+};
+
+// Pro Shop preview photos (shop is not yet open — these are a peek at what's coming)
+export const proshopPhotos = [
+  { src: '/images/proshop/ping-authorized-dealer.jpg', alt: 'PING Authorized Dealer signage in the pro shop' },
+  { src: '/images/proshop/ping-drivers.jpg', alt: 'PING drivers on display' },
+  { src: '/images/proshop/ping-g430-driver.jpg', alt: 'PING G430 driver detail' },
+  { src: '/images/proshop/ping-clubs-closeup.jpg', alt: 'PING clubs close-up' },
+  { src: '/images/proshop/iron-sets.jpg', alt: 'Iron sets on wall display' },
+  { src: '/images/proshop/tour-edge-clubs.jpg', alt: 'Tour Edge clubs — sales, service, custom fittings' },
+  { src: '/images/proshop/fitting-workbench.jpg', alt: 'Club fitting and repair workbench' },
+  { src: '/images/proshop/hats-caps-display.jpg', alt: 'Hats and caps display — TaylorMade, GolfCube branded' },
+  { src: '/images/proshop/hats-polos-towels.jpg', alt: 'Hats, polos, and towels on display' },
+  { src: '/images/proshop/outerwear-jackets.jpg', alt: 'Performance outerwear and jackets' },
+  { src: '/images/proshop/gloves-wall.jpg', alt: 'Glove wall display' },
+  { src: '/images/proshop/taylormade-gloves.jpg', alt: 'TaylorMade gloves on display' },
+  { src: '/images/proshop/taylormade-gloves-closeup.jpg', alt: 'TaylorMade TP glove detail' },
+];
+
 // Pricing packages
 export const pricingPackages = [
   { title: 'Single Lesson', price: '$135', price_detail: '60 minutes per session', description: 'Full-hour session with detailed feedback', is_featured: false, badge_text: '' },

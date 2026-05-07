@@ -1,0 +1,16 @@
+---
+interface Props {
+  hours: { day: string; time: string }[];
+}
+
+const { hours } = Astro.props;
+---
+
+<div class="hours-list">
+  {hours.map((h) => (
+    <div class="hours-row">
+      <span class="hours-day">{h.day}</span>
+      <span class="hours-time">{h.time}</span>
+    </div>
+  ))}
+</div>

@@ -1,13 +1,43 @@
 ---
 import '../styles/styles.css';
 import { ClientRouter } from 'astro:transitions';
+import { siteSettings } from '../lib/data';
 
 interface Props {
   title: string;
   description: string;
+  ogImage?: string;
 }
 
-const { title, description } = Astro.props;
+const { title, description, ogImage = '/images/hero/raw-ball-marker.jpg' } = Astro.props;
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site ?? Astro.url).href;
+const ogImageUrl = new URL(ogImage, Astro.site ?? Astro.url).href;
+const siteOrigin = (Astro.site ?? Astro.url).toString().replace(/\/$/, '');
+
+const localBusinessSchema = {
+  '@context': 'https://schema.org',
+  '@type': ['LocalBusiness', 'SportsActivityLocation'],
+  '@id': `${siteOrigin}#business`,
+  name: 'RAW Golf Academy',
+  description: 'Private golf instruction at GolfCube Social — the R.A.W. method on GOLFZON simulators.',
+  url: siteOrigin,
+  image: ogImageUrl,
+  telephone: `+1${siteSettings.phone}`,
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Springfield',
+    addressRegion: 'NJ',
+    addressCountry: 'US',
+  },
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+      opens: '09:00',
+      closes: '20:00',
+    },
+  ],
+};
 ---
 
 <!DOCTYPE html>
@@ -17,12 +47,21 @@ const { title, description } = Astro.props;
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{title}</title>
   <meta name="description" content={description}>
+  <link rel="canonical" href={canonicalUrl}>
   <meta property="og:title" content={title}>
   <meta property="og:description" content={description}>
   <meta property="og:type" content="website">
+  <meta property="og:url" content={canonicalUrl}>
+  <meta property="og:image" content={ogImageUrl}>
+  <meta property="og:site_name" content="RAW Golf Academy">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content={title}>
+  <meta name="twitter:description" content={description}>
+  <meta name="twitter:image" content={ogImageUrl}>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
   <ClientRouter />
   <style is:global>
     @keyframes blur-fade-in {
@@ -107,7 +146,7 @@ const { title, description } = Astro.props;
       }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
       document.querySelectorAll(
-        '.fundamental-card, .pricing-card, .testimonial-card, .blog-card, .product-card, .learning-step, .timeline-item'
+        '.fundamental-card, .pricing-card, .testimonial-card, .blog-card, .product-card, .learning-step, .timeline-item, .gallery-item'
       ).forEach((el, i) => {
         (el as HTMLElement).style.opacity = '0';
         (el as HTMLElement).style.transform = 'translateY(20px)';

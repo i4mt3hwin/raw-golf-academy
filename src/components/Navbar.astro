@@ -26,6 +26,7 @@ const { phone = '9737316462', activePage = '' } = Astro.props;
           <a href="/blog/top-5-grip-tips/">Top 5 Grip Tips</a>
         </div>
       </div>
+      <a href="/proshop/" class:list={['nav-coming-soon', { active: activePage === 'proshop' }]}>Pro Shop<span class="nav-soon-badge">Soon</span></a>
       <a href="/contact/" class:list={[{ active: activePage === 'contact' }]}>Contact</a>
       <a href={`tel:${phone}`} class="navbar-cta">Book a Lesson</a>
     </div>

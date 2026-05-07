@@ -2,7 +2,7 @@
 import Layout from '../../components/Layout.astro';
 import Navbar from '../../components/Navbar.astro';
 import Footer from '../../components/Footer.astro';
-import { siteSettings, timeline, learningSteps } from '../../lib/data';
+import { siteSettings, timeline, learningSteps, instructorBio } from '../../lib/data';
 
 const phone = siteSettings.phone;
 const title = 'The Approach — RAW Golf Academy';
@@ -23,8 +23,8 @@ const methodologyText2 = 'Richard A. Wenz teaches a methodology rooted in the li
     </div>
   </div>
 
-  <section style="padding: 0;">
-    <img src="/images/facility/lounge-area.jpg" alt="GolfCube Social lounge and simulator area" style="width: 100%; max-height: 420px; object-fit: cover;" width="1400" height="933">
+  <section class="section-flush">
+    <img src="/images/facility/lounge-area.jpg" alt="GolfCube Social lounge and simulator area" class="section-image-band" width="1400" height="933">
   </section>
 
   <section class="approach-intro section">
@@ -32,28 +32,28 @@ const methodologyText2 = 'Richard A. Wenz teaches a methodology rooted in the li
       <div class="approach-grid">
         <div>
           <h2>A Systematic Program for <span class="text-gold-italic">Every Golfer</span></h2>
-          <p style="color: var(--color-text-light); margin-top: 16px; line-height: 1.8;">{methodologyText}</p>
-          <p style="color: var(--color-text-light); margin-top: 16px; line-height: 1.8;">{methodologyText2}</p>
-          <p style="color: var(--color-gold); font-weight: 600; margin-top: 20px; font-size: 1.1rem;">No athletic ability required.</p>
+          <p class="lede">{methodologyText}</p>
+          <p class="lede">{methodologyText2}</p>
+          <p class="no-athletic">No athletic ability required.</p>
         </div>
         <div>
-          <h3 style="margin-bottom: 8px;">Teaching Philosophy</h3>
-          <p style="color: var(--color-text-light); line-height: 1.8; margin-bottom: 24px;">The method avoids quick-fix approaches and swing-of-the-week trends. Instead, it builds on proven fundamentals that have produced results for over a century. When the fundamentals are right, rhythm, tempo, and balance come naturally.</p>
-          <h3 style="margin-bottom: 8px;">What Makes It Different</h3>
-          <p style="color: var(--color-text-light); line-height: 1.8;">Three foundational elements and proper fundamentals naturally produce desired outcomes. No gimmicks, no gadgets — just the same teaching principles that shaped generations of great golfers, enhanced with modern GOLFZON simulator technology for real-time feedback.</p>
+          <h3>Teaching Philosophy</h3>
+          <p>The method avoids quick-fix approaches and swing-of-the-week trends. Instead, it builds on proven fundamentals that have produced results for over a century. When the fundamentals are right, rhythm, tempo, and balance come naturally.</p>
+          <h3>What Makes It Different</h3>
+          <p>Three foundational elements and proper fundamentals naturally produce desired outcomes. No gimmicks, no gadgets — just the same teaching principles that shaped generations of great golfers, enhanced with modern GOLFZON simulator technology for real-time feedback.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section" style="background: var(--color-beige);">
+  <section class="section section-beige">
     <div class="container">
-      <div class="text-center" style="margin-bottom: 48px;">
+      <div class="text-center section-heading">
         <p class="section-label">Step by Step</p>
         <h2>The Learning Path</h2>
-        <p style="color: var(--color-text-light); margin-top: 12px;">A progressive approach that builds each skill on the last</p>
+        <p>A progressive approach that builds each skill on the last</p>
       </div>
-      <div style="max-width: 640px; margin: 0 auto;">
+      <div class="learning-path-wrap">
         <div class="learning-path">
           {learningSteps.map((s) => (
             <div class="learning-step">
@@ -89,11 +89,24 @@ const methodologyText2 = 'Richard A. Wenz teaches a methodology rooted in the li
     </div>
   </section>
 
+  <section class="instructor-bio section section-beige">
+    <div class="container">
+      <div class="instructor-bio-wrap">
+        <p class="section-label">Meet Your Instructor</p>
+        <h2>{instructorBio.name}</h2>
+        <p class="instructor-title">{instructorBio.title}</p>
+        {instructorBio.paragraphs.map((p) => (
+          <p class="instructor-body">{p}</p>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <section class="cta-section section">
     <div class="container text-center">
       <h2>Ready to Start <span class="text-gold-italic">Your Journey</span>?</h2>
       <p class="cta-description">Book your first lesson and experience the R.A.W. method for yourself. $135 for a full 60-minute session on a GOLFZON simulator.</p>
-      <a href={`tel:${phone}`} class="btn btn-dark">Call to Schedule</a>
+      <a href={`tel:${phone}`} class="btn btn-gold">Call to Schedule</a>
     </div>
   </section>
 

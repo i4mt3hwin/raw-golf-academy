@@ -938,6 +938,20 @@ h4 { font-size: 1.25rem; }
   overflow: hidden;
   cursor: pointer;
   position: relative;
+  /* Reset for <button> */
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  width: 100%;
+  display: block;
+}
+
+.gallery-item:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
 }
 
 .gallery-item img {
@@ -945,6 +959,7 @@ h4 { font-size: 1.25rem; }
   height: 250px;
   object-fit: cover;
   transition: transform 0.3s ease;
+  display: block;
 }
 
 .gallery-item:hover img {
@@ -1435,3 +1450,265 @@ h4 { font-size: 1.25rem; }
     font-size: 2.5rem;
   }
 }
+
+/* ===== Polish utilities & promoted patterns ===== */
+
+/* Section variants */
+.section-flush { padding: 0; }
+.section-image-band {
+  width: 100%;
+  max-height: 420px;
+  object-fit: cover;
+  display: block;
+}
+.section-beige { background: var(--color-beige); }
+
+/* Approach intro typography */
+.approach-intro p.lede {
+  color: var(--color-text-light);
+  margin-top: 16px;
+  line-height: 1.8;
+}
+.approach-intro .no-athletic {
+  color: var(--color-gold);
+  font-weight: 600;
+  margin-top: 20px;
+  font-size: 1.1rem;
+}
+.approach-intro h3 { margin-bottom: 8px; }
+.approach-intro h3 + p {
+  color: var(--color-text-light);
+  line-height: 1.8;
+  margin-bottom: 24px;
+}
+.approach-intro h3 + p:last-child { margin-bottom: 0; }
+
+/* Centered narrow learning path wrapper */
+.learning-path-wrap {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+/* Section header (label + h2 + supporting copy) */
+.section-heading { margin-bottom: 48px; }
+.section-heading p {
+  color: var(--color-text-light);
+  margin-top: 12px;
+}
+
+/* Method-text spacing (replaces inline margin-top on adjacent paragraphs) */
+.method-text + .method-text { margin-top: 12px; }
+
+/* Instructor bio (Approach page) */
+.instructor-bio-wrap {
+  max-width: 720px;
+  margin: 0 auto;
+}
+.instructor-bio-wrap .section-label,
+.instructor-bio-wrap h2 {
+  text-align: center;
+}
+.instructor-title {
+  color: var(--color-gold);
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  text-align: center;
+  margin-top: 8px;
+  margin-bottom: 32px;
+}
+.instructor-body {
+  color: var(--color-text-light);
+  line-height: 1.8;
+}
+.instructor-body + .instructor-body {
+  margin-top: 20px;
+}
+
+/* Gallery section titles */
+.gallery-section-title { margin-bottom: 32px; }
+.gallery-videos-title { margin-bottom: 16px; }
+.gallery-videos-intro {
+  color: var(--color-text-light);
+  margin-bottom: 32px;
+}
+
+/* "Coming soon" content card (gallery videos placeholder) */
+.videos-coming-soon {
+  background: var(--color-dark);
+  color: var(--color-white);
+  border-radius: var(--radius-md);
+  padding: 60px 24px;
+  max-width: 640px;
+  margin: 0 auto;
+}
+.videos-coming-soon-icon {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 16px;
+  color: var(--color-gold);
+  display: block;
+}
+.videos-coming-soon-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+.videos-coming-soon-note {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  margin-top: 8px;
+}
+
+/* Contact phone card */
+.phone-card {
+  background: var(--color-dark);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  text-align: center;
+}
+.phone-card-icon {
+  width: 72px;
+  height: 72px;
+  border: 2px solid var(--color-gold);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+.phone-card-icon svg {
+  width: 32px;
+  height: 32px;
+}
+.phone-card-number {
+  color: var(--color-gold);
+  font-size: 2.5rem;
+  font-weight: 800;
+  display: block;
+  margin-bottom: 8px;
+}
+.phone-card-note {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 24px;
+}
+
+/* Contact intro + location row */
+.contact-intro h2 { margin-bottom: 8px; }
+.contact-intro > p {
+  color: var(--color-text-light);
+  margin-bottom: 32px;
+}
+.location-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+.location-name {
+  color: var(--color-gold);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+.location-address {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+/* Hours block (Contact page; Footer keeps its own styling) */
+.hours-block {
+  background: var(--color-dark);
+  color: var(--color-white);
+  border-radius: var(--radius-md);
+  padding: 28px;
+  margin-bottom: 24px;
+}
+
+/* Article header + body widths (blog post) */
+.article-narrow { max-width: 720px; }
+.article-back-link {
+  color: var(--color-gold);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.article-header .blog-card-date { margin-top: 24px; }
+.article-header h1 { margin-top: 12px; }
+.article-hero {
+  width: 100%;
+  height: 300px;
+  background: var(--color-beige);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  margin-bottom: 32px;
+}
+.article-hero svg {
+  width: 64px;
+  height: 64px;
+  color: var(--color-gold);
+}
+.article-cta {
+  margin-top: 48px;
+  padding: 24px;
+  background: var(--color-beige);
+  border-radius: var(--radius-md);
+  border-left: 3px solid var(--color-gold);
+}
+.article-cta-title {
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.article-cta-body {
+  font-size: 0.9rem;
+  color: var(--color-text-light);
+  margin-bottom: 16px;
+}
+
+/* Blog card placeholder image (Clubhouse listing) */
+.blog-card-placeholder {
+  width: 100%;
+  height: 200px;
+  background: var(--color-beige);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.blog-card-placeholder svg {
+  width: 48px;
+  height: 48px;
+  color: var(--color-gold);
+}
+.blog-card.is-coming-soon { opacity: 0.6; }
+.blog-card.is-coming-soon .blog-card-placeholder svg { color: var(--color-text-muted); }
+.blog-card.is-coming-soon .blog-card-link { color: var(--color-text-muted); }
+
+/* Pro Shop order CTA helper text */
+.proshop-order-note {
+  color: var(--color-text-light);
+  margin-bottom: 16px;
+}
+
+/* Nav "Soon" badge for Pro Shop link */
+.navbar-links a.nav-coming-soon {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.nav-soon-badge {
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--color-gold);
+  border: 1px solid var(--color-gold);
+  border-radius: 999px;
+  padding: 2px 8px;
+  line-height: 1;
+}
+
+/* Spacing utility */
+.mt-48 { margin-top: 48px; }
