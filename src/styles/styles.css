@@ -21,9 +21,13 @@
   --section-padding: 80px 0;
   --section-padding-mobile: 48px 0;
 
-  --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
-  --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
-  --shadow-lg: 0 8px 30px rgba(0,0,0,0.15);
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.04), 0 1px 3px rgba(0,0,0,0.06);
+  --shadow-md: 0 2px 4px rgba(0,0,0,0.06), 0 8px 16px rgba(0,0,0,0.08);
+  --shadow-lg: 0 4px 8px rgba(0,0,0,0.06), 0 16px 40px rgba(0,0,0,0.12);
+  --shadow-xl: 0 8px 16px rgba(0,0,0,0.08), 0 24px 60px rgba(0,0,0,0.16);
+  --shadow-gold: 0 6px 20px rgba(212, 160, 23, 0.25);
+  --shadow-gold-strong: 0 8px 28px rgba(212, 160, 23, 0.4);
+  --shadow-inset-top: inset 0 1px 0 rgba(255,255,255,0.06);
 
   --radius-sm: 4px;
   --radius-md: 8px;
@@ -131,11 +135,14 @@ h4 { font-size: 1.25rem; }
   background: var(--color-gold);
   color: var(--color-dark);
   border: 2px solid var(--color-gold);
+  box-shadow: var(--shadow-gold);
 }
 
 .btn-gold:hover {
   background: var(--color-gold-light);
   border-color: var(--color-gold-light);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-gold-strong);
 }
 
 .btn-outline-gold {
@@ -153,11 +160,14 @@ h4 { font-size: 1.25rem; }
   background: var(--color-dark);
   color: var(--color-white);
   border: 2px solid var(--color-dark);
+  box-shadow: var(--shadow-md);
 }
 
 .btn-dark:hover {
   background: #333;
   border-color: #333;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
 }
 
 .btn-outline-dark {
@@ -182,6 +192,8 @@ h4 { font-size: 1.25rem; }
   z-index: 1000;
   display: flex;
   align-items: center;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04), 0 4px 16px rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .navbar .container {
@@ -330,7 +342,22 @@ h4 { font-size: 1.25rem; }
 .hero {
   padding-top: calc(var(--nav-height) + 60px);
   padding-bottom: 60px;
-  background: var(--color-white);
+  background:
+    radial-gradient(ellipse at top right, rgba(212, 160, 23, 0.08), transparent 60%),
+    radial-gradient(ellipse at bottom left, rgba(245, 240, 235, 0.6), transparent 50%),
+    var(--color-white);
+  position: relative;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.08), transparent);
+  pointer-events: none;
 }
 
 .hero .container {
@@ -370,6 +397,8 @@ h4 { font-size: 1.25rem; }
   border-radius: var(--radius-lg);
   padding: 36px;
   position: relative;
+  box-shadow: var(--shadow-xl), var(--shadow-inset-top);
+  border: 1px solid rgba(255, 255, 255, 0.04);
 }
 
 .first-lesson-card .card-label {
@@ -518,7 +547,9 @@ h4 { font-size: 1.25rem; }
 
 /* ===== Fundamentals Section ===== */
 .fundamentals-section {
-  background: var(--color-beige);
+  background:
+    linear-gradient(180deg, rgba(212, 160, 23, 0.04), transparent 30%, transparent 70%, rgba(212, 160, 23, 0.03)),
+    var(--color-beige);
   padding: var(--section-padding);
 }
 
@@ -545,8 +576,8 @@ h4 { font-size: 1.25rem; }
 }
 
 .fundamental-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
 }
 
 .fundamental-icon {
@@ -603,22 +634,36 @@ h4 { font-size: 1.25rem; }
   padding: 36px 28px;
   text-align: center;
   position: relative;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .pricing-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-6px);
 }
 
 .pricing-card-light {
-  background: var(--color-white);
+  background:
+    linear-gradient(180deg, rgba(212, 160, 23, 0.03), transparent 50%),
+    var(--color-white);
   border: 2px solid var(--color-border);
+  box-shadow: var(--shadow-md);
+}
+
+.pricing-card-light:hover {
+  box-shadow: var(--shadow-lg);
 }
 
 .pricing-card-dark {
-  background: var(--color-dark);
+  background:
+    radial-gradient(ellipse at top, rgba(212, 160, 23, 0.12), transparent 60%),
+    var(--color-dark);
   color: var(--color-white);
   border: 2px solid var(--color-gold);
+  box-shadow: var(--shadow-lg), var(--shadow-inset-top);
+}
+
+.pricing-card-dark:hover {
+  box-shadow: var(--shadow-xl), var(--shadow-inset-top);
 }
 
 .pricing-badge {
@@ -676,7 +721,9 @@ h4 { font-size: 1.25rem; }
 
 /* ===== Testimonials Section ===== */
 .testimonials-section {
-  background: var(--color-dark);
+  background:
+    radial-gradient(ellipse at center, rgba(212, 160, 23, 0.08), transparent 60%),
+    var(--color-dark);
   padding: var(--section-padding);
   position: relative;
   overflow: hidden;
@@ -710,10 +757,13 @@ h4 { font-size: 1.25rem; }
 }
 
 .testimonial-card {
-  background: var(--color-dark-card);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent 40%),
+    var(--color-dark-card);
   border-radius: var(--radius-md);
   padding: 28px;
   border: 1px solid var(--color-dark-lighter);
+  box-shadow: var(--shadow-md), var(--shadow-inset-top);
 }
 
 .testimonial-stars {
@@ -740,7 +790,9 @@ h4 { font-size: 1.25rem; }
 /* ===== CTA Section ===== */
 .cta-section {
   padding: var(--section-padding);
-  background: var(--color-white);
+  background:
+    radial-gradient(ellipse at center, rgba(212, 160, 23, 0.06), transparent 60%),
+    linear-gradient(180deg, var(--color-white), var(--color-bg-light));
   position: relative;
 }
 
@@ -778,9 +830,12 @@ h4 { font-size: 1.25rem; }
 
 /* ===== Footer ===== */
 .footer {
-  background: var(--color-dark);
+  background:
+    radial-gradient(ellipse at top, rgba(212, 160, 23, 0.06), transparent 50%),
+    var(--color-dark);
   color: var(--color-white);
   padding: 60px 0 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
 }
 
 .footer-grid {
@@ -962,6 +1017,16 @@ h4 { font-size: 1.25rem; }
   display: block;
 }
 
+.gallery-item {
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.gallery-item:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
 .gallery-item:hover img {
   transform: scale(1.05);
 }
@@ -1013,6 +1078,8 @@ h4 { font-size: 1.25rem; }
   border-radius: var(--radius-md);
   overflow: hidden;
   border: 1px solid var(--color-border);
+  background: var(--color-white);
+  box-shadow: var(--shadow-sm);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -1096,6 +1163,8 @@ h4 { font-size: 1.25rem; }
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   overflow: hidden;
+  background: var(--color-white);
+  box-shadow: var(--shadow-sm);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -1183,8 +1252,13 @@ h4 { font-size: 1.25rem; }
 .page-header {
   padding-top: calc(var(--nav-height) + 48px);
   padding-bottom: 48px;
-  background: var(--color-dark);
+  background:
+    radial-gradient(ellipse at top right, rgba(212, 160, 23, 0.12), transparent 60%),
+    radial-gradient(ellipse at bottom left, rgba(212, 160, 23, 0.04), transparent 50%),
+    var(--color-dark);
   color: var(--color-white);
+  position: relative;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
 }
 
 .page-header h1 {
@@ -1461,7 +1535,11 @@ h4 { font-size: 1.25rem; }
   object-fit: cover;
   display: block;
 }
-.section-beige { background: var(--color-beige); }
+.section-beige {
+  background:
+    linear-gradient(180deg, rgba(212, 160, 23, 0.04), transparent 40%),
+    var(--color-beige);
+}
 
 /* Approach intro typography */
 .approach-intro p.lede {
@@ -1536,12 +1614,16 @@ h4 { font-size: 1.25rem; }
 
 /* "Coming soon" content card (gallery videos placeholder) */
 .videos-coming-soon {
-  background: var(--color-dark);
+  background:
+    radial-gradient(ellipse at top, rgba(212, 160, 23, 0.08), transparent 60%),
+    var(--color-dark);
   color: var(--color-white);
   border-radius: var(--radius-md);
   padding: 60px 24px;
   max-width: 640px;
   margin: 0 auto;
+  box-shadow: var(--shadow-lg), var(--shadow-inset-top);
+  border: 1px solid rgba(255, 255, 255, 0.04);
 }
 .videos-coming-soon-icon {
   width: 48px;
@@ -1562,10 +1644,14 @@ h4 { font-size: 1.25rem; }
 
 /* Contact phone card */
 .phone-card {
-  background: var(--color-dark);
+  background:
+    radial-gradient(ellipse at top, rgba(212, 160, 23, 0.1), transparent 60%),
+    var(--color-dark);
   border-radius: var(--radius-lg);
   padding: 40px;
   text-align: center;
+  box-shadow: var(--shadow-lg), var(--shadow-inset-top);
+  border: 1px solid rgba(255, 255, 255, 0.04);
 }
 .phone-card-icon {
   width: 72px;
@@ -1618,11 +1704,15 @@ h4 { font-size: 1.25rem; }
 
 /* Hours block (Contact page; Footer keeps its own styling) */
 .hours-block {
-  background: var(--color-dark);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent 40%),
+    var(--color-dark);
   color: var(--color-white);
   border-radius: var(--radius-md);
   padding: 28px;
   margin-bottom: 24px;
+  box-shadow: var(--shadow-md), var(--shadow-inset-top);
+  border: 1px solid rgba(255, 255, 255, 0.04);
 }
 
 /* Article header + body widths (blog post) */
@@ -1654,9 +1744,12 @@ h4 { font-size: 1.25rem; }
 .article-cta {
   margin-top: 48px;
   padding: 24px;
-  background: var(--color-beige);
+  background:
+    linear-gradient(180deg, rgba(212, 160, 23, 0.04), transparent 60%),
+    var(--color-beige);
   border-radius: var(--radius-md);
   border-left: 3px solid var(--color-gold);
+  box-shadow: var(--shadow-sm);
 }
 .article-cta-title {
   font-weight: 700;
