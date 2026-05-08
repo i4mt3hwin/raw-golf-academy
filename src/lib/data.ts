@@ -49,19 +49,19 @@ export const proshopPhotos = [
 export const simulatorData = {
   label: 'Real-Time Feedback',
   title: 'Every Swing, Measured',
-  body: "The GOLFZON Wave at GolfCube Social tracks 34 data points on every shot. Rich uses the numbers to spot what's actually happening at impact: a casting motion, an open face, an inconsistent low point. Then he uses the same data to verify in real time that the correction is working. Feedback you can trust, not just feel.",
+  body: "The GOLFZON TwoVision NX at GolfCube Social tracks up to 20 data points per shot and a four-stage weight-transfer analysis, backed by dual-angle 120fps swing video. Rich uses the numbers to spot what's actually happening at impact: a casting motion, an open face, an inconsistent low point. Then he uses the same data to verify in real time that the correction is working. Feedback you can trust, not just feel.",
   categories: [
     {
       name: 'Swing Mechanics',
-      metrics: 'Clubhead speed, club path, attack angle, face angle, dynamic loft',
+      metrics: 'Club speed, club path, attack angle, face angle, weight transfer',
     },
     {
       name: 'Ball Flight',
-      metrics: 'Ball speed, launch angle, spin rate, spin axis, smash factor',
+      metrics: 'Ball speed, launch angle, spin rate, smash factor',
     },
     {
       name: 'Results',
-      metrics: 'Carry distance, total distance, shot shape, dispersion',
+      metrics: 'Carry distance, total distance, apex height, dispersion',
     },
   ],
 };
