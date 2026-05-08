@@ -17,9 +17,16 @@ if (!post) return Astro.redirect('/clubhouse/');
 
 const title = `${post.title} | RAW Golf Academy`;
 const description = post.excerpt;
+
+const datePublished = new Date(post.date).toISOString().split('T')[0];
+const articleSchema = {
+  headline: post.title,
+  datePublished,
+  author: post.author,
+};
 ---
 
-<Layout title={title} description={description}>
+<Layout title={title} description={description} article={articleSchema}>
   <Navbar phone={phone} activePage="clubhouse" />
 
   <div class="article-header">
