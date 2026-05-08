@@ -1596,6 +1596,7 @@ h4 { font-size: 1.25rem; }
   margin: 0 auto;
 }
 .sim-metric-category {
+  min-width: 0;
   background:
     linear-gradient(180deg, rgba(212, 160, 23, 0.04), transparent 50%),
     var(--color-white);
@@ -1851,3 +1852,18 @@ h4 { font-size: 1.25rem; }
 
 /* Spacing utility */
 .mt-48 { margin-top: 48px; }
+
+/* ===== Mobile overrides for polish-utility classes =====
+   These come AFTER the desktop rules so they win on small screens
+   (the original mobile media query at ~line 1306 sits before these
+   utility classes are defined, so without this block the desktop
+   rules above re-apply on mobile and force multi-column grids). */
+@media (max-width: 768px) {
+  .sim-metrics-grid {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+  }
+  .sim-metric-category {
+    padding: 24px 20px;
+  }
+}
