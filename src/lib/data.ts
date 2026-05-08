@@ -94,7 +94,7 @@ export const timeline = [
 export const fundamentals = [
   { title: 'Grip', desc: 'How you hold the club determines everything that follows. Refining your grip creates natural, consistent contact.', icon_svg: '<path d="M18 11V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2"/><path d="M14 10V4a2 2 0 0 0-2-2a2 2 0 0 0-2 2v2"/><path d="M10 10.5V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 13"/>' },
   { title: 'Stance', desc: 'A proper stance creates the stable foundation your swing needs. Addresses alignment, width, and weight distribution for maximum consistency.', icon_svg: '<path d="M6 20v-4"/><path d="M18 20v-4"/><path d="M12 20v-8"/><path d="M6 12a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4"/><circle cx="12" cy="4" r="2"/>' },
-  { title: 'Posture', desc: 'The bridge between grip and stance. Correct posture enables natural rhythm, proper tempo, and the balance separating good shots from great ones.', icon_svg: '<path d="M12 2a4 4 0 0 0-4 4v4h8V6a4 4 0 0 0-4-4z"/><path d="M8 10v4c0 2 1 4 4 6c3-2 4-4 4-6v-4"/><path d="M6 18c0 2 2 4 6 4s6-2 6-4"/>' },
+  { title: 'Posture', desc: 'The bridge between grip and stance. Correct posture enables natural rhythm, proper tempo, and the balance separating good shots from great ones.', icon_svg: '<circle cx="12" cy="5" r="1"/><path d="m9 20 3-6 3 6"/><path d="m6 8 6 2 6-2"/><path d="M12 10v4"/>' },
 ];
 
 // Learning steps (approach page)
