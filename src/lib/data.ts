@@ -1,7 +1,7 @@
 // Site-wide settings
 export const siteSettings = {
-  phone: '9737316462',
-  phone_formatted: '(973) 731-6462',
+  phone: '9737136462',
+  phone_formatted: '(973) 713-6462',
   location_name: 'Golf Cube Social',
   location_address: 'Springfield, NJ',
   announcement_bar_text: 'Now teaching at GolfCube Social, Springfield, NJ &nbsp;|&nbsp; Private indoor lessons on GOLFZON simulators',
