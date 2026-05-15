@@ -1,6 +1,6 @@
 import { defineConfig } from "astro/config";
 
 export default defineConfig({
-  site: "https://raw-golf-academy.pages.dev",
+  site: "https://rawgolfacademy.com",
   output: "static",
 });

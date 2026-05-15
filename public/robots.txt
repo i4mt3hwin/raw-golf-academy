@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://raw-golf-academy.pages.dev/sitemap.xml
+Sitemap: https://rawgolfacademy.com/sitemap.xml
