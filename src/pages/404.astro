@@ -1,0 +1,37 @@
+---
+import Layout from '../components/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import { siteSettings } from '../lib/data';
+
+const phone = siteSettings.phone;
+const title = 'Page Not Found | RAW Golf Academy';
+const description = 'The page you were looking for doesn\'t exist.';
+---
+
+<Layout title={title} description={description}>
+  <Navbar phone={phone} />
+
+  <div class="page-header text-center">
+    <div class="container">
+      <p class="section-label">404</p>
+      <h1>Page Not Found</h1>
+      <p>The page you were looking for doesn't exist or has moved. Try the <a href="/" class="text-gold">home page</a> or <a href="/contact/" class="text-gold">contact us</a> if you need help.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container text-center">
+      <a href={`tel:${phone}`} class="btn btn-gold">Call to Schedule</a>
+    </div>
+  </section>
+
+  <Footer
+    phone={siteSettings.phone}
+    phone_formatted={siteSettings.phone_formatted}
+    location_name={siteSettings.location_name}
+    location_address={siteSettings.location_address}
+    hours={siteSettings.hours}
+    first_timer_tips={siteSettings.first_timer_tips}
+  />
+</Layout>

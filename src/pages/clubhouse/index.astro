@@ -7,9 +7,13 @@ import { siteSettings, blogPosts } from '../../lib/data';
 const phone = siteSettings.phone;
 const title = 'The Clubhouse | RAW Golf Academy Blog';
 const description = 'Golf tips, swing insights, and lessons from the R.A.W. method. Practical advice from RAW Golf Academy in Springfield, NJ to help you play better golf.';
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'The Clubhouse', url: '/clubhouse/' },
+];
 ---
 
-<Layout title={title} description={description}>
+<Layout title={title} description={description} breadcrumbs={breadcrumbs}>
   <Navbar phone={phone} activePage="clubhouse" />
 
   <div class="page-header text-center">

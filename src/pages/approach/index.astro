@@ -7,12 +7,16 @@ import { siteSettings, timeline, learningSteps, instructorBio, simulatorData } f
 const phone = siteSettings.phone;
 const title = 'The Approach | RAW Golf Academy';
 const description = 'The R.A.W. method: a systematic golf instruction program built on the lineage of Harry Vardon, Ernie Jones, and Manuel de la Torre. Real-time feedback on the GOLFZON TwoVision NX simulator.';
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'The Approach', url: '/approach/' },
+];
 
 const methodologyText = 'The R.A.W. method represents a systematic program addressing all aspects of the swing. Whether you\'re a dedicated golfer looking to refine your technique, someone struggling to break 90, or a complete beginner picking up a club for the first time, this approach meets you where you are.';
 const methodologyText2 = 'Richard A. Wenz teaches a methodology rooted in the lineage of Harry Vardon, Ernie Jones, and Manuel de la Torre. The approach emphasizes three core fundamentals (grip, stance, and posture) to develop rhythm, tempo, and balance.';
 ---
 
-<Layout title={title} description={description}>
+<Layout title={title} description={description} breadcrumbs={breadcrumbs}>
   <Navbar phone={phone} activePage="approach" />
 
   <div class="page-header text-center">

@@ -7,9 +7,13 @@ import { siteSettings, galleryPhotos } from '../../lib/data';
 const phone = siteSettings.phone;
 const title = 'Gallery | RAW Golf Academy';
 const description = 'Inside the RAW Golf Academy: photos of the GOLFZON TwoVision NX simulator bay, lounge, and pro shop gear at GolfCube Social in Springfield, NJ.';
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Gallery', url: '/gallery/' },
+];
 ---
 
-<Layout title={title} description={description}>
+<Layout title={title} description={description} breadcrumbs={breadcrumbs}>
   <Navbar phone={phone} activePage="gallery" />
 
   <div class="page-header text-center">

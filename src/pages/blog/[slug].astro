@@ -24,9 +24,14 @@ const articleSchema = {
   datePublished,
   author: post.author,
 };
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'The Clubhouse', url: '/clubhouse/' },
+  { name: post.title, url: `/blog/${post.slug}/` },
+];
 ---
 
-<Layout title={title} description={description} article={articleSchema}>
+<Layout title={title} description={description} article={articleSchema} breadcrumbs={breadcrumbs}>
   <Navbar phone={phone} activePage="clubhouse" />
 
   <div class="article-header">

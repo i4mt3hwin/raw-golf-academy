@@ -10,14 +10,20 @@ interface ArticleSchema {
   image?: string;
 }
 
+interface BreadcrumbItem {
+  name: string;
+  url: string;
+}
+
 interface Props {
   title: string;
   description: string;
   ogImage?: string;
   article?: ArticleSchema;
+  breadcrumbs?: BreadcrumbItem[];
 }
 
-const { title, description, ogImage = '/images/hero/raw-ball-marker.jpg', article } = Astro.props;
+const { title, description, ogImage = '/images/hero/raw-ball-marker.jpg', article, breadcrumbs } = Astro.props;
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site ?? Astro.url).href;
 const ogImageUrl = new URL(ogImage, Astro.site ?? Astro.url).href;
 const siteOrigin = (Astro.site ?? Astro.url).toString().replace(/\/$/, '');
@@ -63,6 +69,19 @@ const articleSchema = article
       mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalUrl },
     }
   : null;
+
+const breadcrumbSchema = breadcrumbs && breadcrumbs.length > 0
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: breadcrumbs.map((b, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        name: b.name,
+        item: new URL(b.url, Astro.site ?? Astro.url).href,
+      })),
+    }
+  : null;
 ---
 
 <!DOCTYPE html>
@@ -81,6 +100,8 @@ const articleSchema = article
   <meta property="og:type" content={article ? 'article' : 'website'}>
   <meta property="og:url" content={canonicalUrl}>
   <meta property="og:image" content={ogImageUrl}>
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:site_name" content="RAW Golf Academy">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content={title}>
@@ -92,6 +113,9 @@ const articleSchema = article
   <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
   {articleSchema && (
     <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+  )}
+  {breadcrumbSchema && (
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   )}
   <ClientRouter />
   <style is:global>

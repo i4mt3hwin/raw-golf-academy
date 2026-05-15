@@ -13,10 +13,14 @@ const hours = siteSettings.hours;
 
 const title = 'Contact | RAW Golf Academy';
 const description = 'Book a private golf lesson at RAW Golf Academy in Springfield, NJ. Call or text (973) 713-6462. Located inside GolfCube Social, open 9AM to 8PM daily.';
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Contact', url: '/contact/' },
+];
 const mapEmbedUrl = 'https://www.google.com/maps?q=275+US-22,+Springfield,+NJ+07081&output=embed';
 ---
 
-<Layout title={title} description={description}>
+<Layout title={title} description={description} breadcrumbs={breadcrumbs}>
   <Navbar phone={phone} activePage="contact" />
 
   <div class="page-header text-center">

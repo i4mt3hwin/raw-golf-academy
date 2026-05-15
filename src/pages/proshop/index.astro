@@ -7,9 +7,13 @@ import { siteSettings, proshopPhotos } from '../../lib/data';
 const phone = siteSettings.phone;
 const title = 'Pro Shop Coming Soon | RAW Golf Academy';
 const description = 'A preview of the RAW Golf Academy Pro Shop at GolfCube Social, opening soon with PING, Tour Edge, TaylorMade gear, custom fitting, and apparel.';
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Pro Shop', url: '/proshop/' },
+];
 ---
 
-<Layout title={title} description={description}>
+<Layout title={title} description={description} breadcrumbs={breadcrumbs}>
   <Navbar phone={phone} activePage="proshop" />
 
   <div class="page-header text-center">
